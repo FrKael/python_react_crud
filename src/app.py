@@ -2,21 +2,27 @@ from flask import Flask, request
 from flask_pymongo import PyMongo,ObjectId
 from flask_cors import CORS
 
+#mongousr
+#mongopsw
+
 app = Flask(__name__)
-app.config['MONGO_URI']="mongodb+srv://mongouser:mongopassword@pythonreactdb.fi46pmk.mongodb.net/?retryWrites=true&w=majority"
+app.config['MONGO_URI']= "mongodb+srv://mongousr:mongopsw@pythonreactdb.c6tcn8h.mongodb.net/pythonreactdb?retryWrites=true&w=majority"
 mongo = PyMongo(app)
 db = mongo.db.users
 
 @app.route('/users', methods=['POST'])
 def createUser():
-    id = db.insert_one({
+    id = {
         'name': request.json["name"],
         'email': request.json['email'],
         'password': request.json['password']
-    })
+    }
     result = db.insert_one(id)
     inserted_id = result.inserted_id
-    return 'recieved'
+    return str(inserted_id)
+
+if  __name__ == "__main__":
+    app.run(debug = True)
 
 @app.route('/users', methods=['GET'])
 def getUser():
@@ -34,5 +40,4 @@ def deleteUser():
 def updateUser():
     return  'recived'
 
-if  __name__ == "__main__":
-    app.run(debug = True)
+
