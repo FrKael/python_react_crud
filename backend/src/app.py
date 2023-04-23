@@ -8,6 +8,11 @@ from flask_cors import CORS
 app = Flask(__name__)
 app.config['MONGO_URI']= "mongodb+srv://mongousr:mongopsw@pythonreactdb.c6tcn8h.mongodb.net/pythonreactdb?retryWrites=true&w=majority"
 mongo = PyMongo(app)
+
+#interaccion de  react y flask
+CORS(app)
+
+
 db = mongo.db.users
 
 #creacion de usuarios usando metodo 'POST'
