@@ -1,19 +1,22 @@
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import React from 'react';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { About } from './Components/About';
+import { Users } from './Components/Users';
+import { Navbar } from './Components/Navbar';
 
-import { Users } from './components/Users';
-import { About } from './components/about';
 
 function App() {
   return (
     <Router>
-
-      <div>
-        <Switch>
-          <Route path="/about" Component={About} />
-          <Route path="/" Component={Users} />
-        </Switch>
+      <Navbar/>
+      <div className='container p-4'>
+        <Routes>
+          <Route path="/About" component={About}/>
+          <Route path="/" component={Users}/>
+        </Routes>
       </div>
     </Router>
+
   );
 }
 
