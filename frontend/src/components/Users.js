@@ -1,8 +1,24 @@
 import React from "react";
 
-export const Users = () => (
-    <div className="container p-2">
-        <h1>Users!!</h1>
-    </div>
-);
-
+export const Users = () => {
+    const handleSubmit = (e) => {
+        console.log(e)
+    }
+    return (
+        <div className="row">
+            <div className="col-md-4">
+                <form onSubmit={handleSubmit}>
+                </form>
+            </div>
+            <div className="col-md-8">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>table</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    );
+};
