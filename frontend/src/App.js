@@ -1,22 +1,18 @@
 import React from 'react';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import { About } from './Components/About';
-import { Users } from './Components/Users';
-import { Navbar } from './Components/Navbar';
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { About } from './components/About';
+import { Users } from './components/Users';
+import { Navbar } from './components/Navbar';
 
 function App() {
   return (
     <Router>
-      <Navbar/>
-      <div className='container p-4'>
-        <Routes>
-          <Route path="/About" component={About}/>
-          <Route path="/" component={Users}/>
-        </Routes>
-      </div>
+      <Navbar />
+      <Routes>
+        <Route path="/about" element={<About />} />
+        <Route path="/" element={<Users />} />
+      </Routes>
     </Router>
-
   );
 }
 

@@ -1,4 +1,8 @@
 import React from "react";
+
 export const Users = () => (
-    <h1>Users!!!</h1>
-)
+    <div className="container p-2">
+        <h1>Users!!</h1>
+    </div>
+);
+
